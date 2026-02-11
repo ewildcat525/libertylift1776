@@ -393,7 +393,8 @@
 
     <script>
         // Form submission handler (placeholder)
-        document.querySelector('.email-form').addEventListener('submit', function(e) {
+        // Formspree handles submission - removed JS handler
+        /*
             // Form submits to Formspree
             const email = this.querySelector('.email-input').value;
             const btn = this.querySelector('.submit-btn');
@@ -404,6 +405,7 @@
                 btn.style.background = '';
                 this.querySelector('.email-input').value = '';
             }, 3000);
+        */
         });
 
         // Countdown to July 1st (if before July)
