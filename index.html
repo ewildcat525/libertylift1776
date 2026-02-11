@@ -371,7 +371,7 @@
         </div>
 
         <div class="cta-section">
-            <form class="email-form" action="#" method="POST">
+            <form class="email-form" action="https://formspree.io/f/xzdadynn" method="POST">
                 <input type="email" class="email-input" placeholder="Enter your email" required>
                 <button type="submit" class="submit-btn">Join the Revolution</button>
             </form>
@@ -394,7 +394,7 @@
     <script>
         // Form submission handler (placeholder)
         document.querySelector('.email-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Form submits to Formspree
             const email = this.querySelector('.email-input').value;
             const btn = this.querySelector('.submit-btn');
             btn.textContent = 'You\'re In! 🎉';
