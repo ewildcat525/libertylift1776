@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liberty Lift 1776 — The Push-Up Challenge</title>
     <meta name="description" content="Complete 1776 push-ups in July. One nation. One month. One challenge. Are you ready to earn your freedom?">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%233C3B6E' width='100' height='100' rx='15'/><text y='.9em' x='50%' text-anchor='middle' font-size='70'>🏋️</text><text y='.35em' x='80%' text-anchor='middle' font-size='25'>⭐</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%233C3B6E' width='100' height='100' rx='15'/><text y='.9em' x='50%' text-anchor='middle' font-size='70'>🏋️</text></svg>">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://libertylift1776.com">
+    <meta property="og:title" content="Liberty Lift 1776 — The Push-Up Challenge">
+    <meta property="og:description" content="Complete 1776 push-ups in July. One nation. One month. One challenge. Join the revolution!">
+    <meta property="og:image" content="https://libertylift1776.com/og-image.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Liberty Lift 1776 — The Push-Up Challenge">
+    <meta name="twitter:description" content="Complete 1776 push-ups in July. One nation. One month. One challenge.">
+    <meta name="twitter:image" content="https://libertylift1776.com/og-image.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,6 +35,7 @@
             --dark: #0A0A0F;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             background: var(--dark);
@@ -98,6 +117,64 @@
         .stat { text-align: center; }
         .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 8vw, 4rem); color: var(--white); line-height: 1; }
         .stat-label { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255, 255, 255, 0.5); margin-top: 0.5rem; }
+        
+        /* Countdown Timer */
+        .countdown-section {
+            margin-bottom: 2rem;
+        }
+        .countdown {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .countdown-unit {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            min-width: 80px;
+            transition: all 0.3s ease;
+        }
+        .countdown-unit:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+        .countdown-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: var(--gold);
+            line-height: 1;
+        }
+        .countdown-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 0.25rem;
+        }
+        .countdown-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 1rem;
+        }
+        .challenge-live {
+            display: none;
+            background: linear-gradient(135deg, var(--red) 0%, #8B1A28 100%);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            animation: pulse-live 2s ease-in-out infinite;
+        }
+        @keyframes pulse-live {
+            0%, 100% { box-shadow: 0 0 20px rgba(178, 34, 52, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(178, 34, 52, 0.8); }
+        }
+        
         .cta-section { margin-top: 2rem; }
         .email-form { display: flex; gap: 0.5rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
         .email-input {
@@ -138,23 +215,174 @@
         }
         .form-message.success { display: block; background: rgba(34, 139, 34, 0.2); border: 1px solid #228B22; color: #90EE90; }
         .form-message.error { display: block; background: rgba(178, 34, 52, 0.2); border: 1px solid var(--red); color: #FFB6C1; }
-        .coming-soon {
-            margin-top: 1.5rem;
-            padding: 0.75rem 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            display: inline-flex;
+        
+        /* Share Buttons */
+        .share-section {
+            margin-top: 2rem;
+        }
+        .share-text {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 0.75rem;
+        }
+        .share-buttons {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+        .share-btn {
+            display: flex;
             align-items: center;
             gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--white);
+            transition: all 0.3s ease;
         }
-        .pulse-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; animation: pulse-dot 2s ease-in-out infinite; }
-        @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.2); } }
-        .coming-soon-text { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255, 255, 255, 0.7); }
+        .share-btn:hover { transform: translateY(-2px); }
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.twitter:hover { box-shadow: 0 5px 20px rgba(29, 161, 242, 0.4); }
+        .share-btn.facebook { background: #4267B2; }
+        .share-btn.facebook:hover { box-shadow: 0 5px 20px rgba(66, 103, 178, 0.4); }
+        .share-btn.copy { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .share-btn.copy:hover { background: rgba(255, 255, 255, 0.2); }
+        
         .quote { max-width: 600px; margin-top: 4rem; padding: 2rem; border-left: 3px solid var(--gold); text-align: left; }
         .quote-text { font-size: 1.25rem; font-style: italic; color: rgba(255, 255, 255, 0.8); line-height: 1.6; }
         .quote-author { margin-top: 1rem; font-size: 0.875rem; color: var(--gold); font-weight: 600; }
+        
+        /* How It Works Section */
+        .how-it-works {
+            position: relative;
+            z-index: 10;
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(60, 59, 110, 0.1) 50%, transparent 100%);
+        }
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .step {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .step:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-5px);
+        }
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--red) 0%, var(--blue) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+        .step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .step-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        .step-desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+        
+        /* Pace Calculator */
+        .calculator {
+            position: relative;
+            z-index: 10;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .calc-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        .calc-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+        .calc-input-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .calc-input {
+            width: 100px;
+            padding: 0.75rem 1rem;
+            font-size: 1.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--gold);
+            outline: none;
+        }
+        .calc-input:focus { border-color: var(--gold); }
+        .calc-result {
+            padding: 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+        }
+        .calc-result-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .calc-result-text {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.5rem;
+        }
+        .calc-encouragement {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: var(--white);
+            font-weight: 600;
+        }
+        
         footer { position: relative; z-index: 10; padding: 2rem; text-align: center; color: rgba(255, 255, 255, 0.3); font-size: 0.875rem; }
+        
+        /* Star positions */
         .star:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
         .star:nth-child(2) { top: 20%; left: 85%; animation-delay: 0.5s; }
         .star:nth-child(3) { top: 40%; left: 25%; animation-delay: 1s; }
@@ -165,10 +393,18 @@
         .star:nth-child(8) { top: 55%; left: 10%; animation-delay: 1.3s; }
         .star:nth-child(9) { top: 75%; left: 65%; animation-delay: 1.8s; }
         .star:nth-child(10) { top: 90%; left: 30%; animation-delay: 2.3s; }
+        .star:nth-child(11) { top: 5%; left: 40%; animation-delay: 0.7s; }
+        .star:nth-child(12) { top: 25%; left: 5%; animation-delay: 1.2s; }
+        .star:nth-child(13) { top: 45%; left: 60%; animation-delay: 0.4s; }
+        .star:nth-child(14) { top: 65%; left: 35%; animation-delay: 1.6s; }
+        .star:nth-child(15) { top: 85%; left: 80%; animation-delay: 2.1s; }
+        
         @media (max-width: 600px) {
             .stats { gap: 2rem; }
             .email-form { flex-direction: column; }
             .email-input, .submit-btn { width: 100%; }
+            .countdown-unit { min-width: 65px; padding: 0.75rem 1rem; }
+            .share-buttons { flex-wrap: wrap; }
         }
     </style>
 </head>
@@ -177,35 +413,149 @@
     <div class="stars">
         <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
         <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
     </div>
+    
     <main class="container">
         <div class="flag-icon">🇺🇸</div>
         <h1>LIBERTY LIFT</h1>
         <div class="year">1776</div>
         <p class="tagline">One Nation. One Month. One Challenge.</p>
+        
         <div class="stats">
             <div class="stat"><div class="stat-number">1,776</div><div class="stat-label">Push-ups</div></div>
             <div class="stat"><div class="stat-number">31</div><div class="stat-label">Days</div></div>
             <div class="stat"><div class="stat-number">~57</div><div class="stat-label">Per Day</div></div>
         </div>
+        
+        <div class="countdown-section">
+            <div class="countdown-title">⭐ Challenge begins in ⭐</div>
+            <div class="countdown" id="countdown">
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="days">--</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="hours">--</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="minutes">--</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="seconds">--</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            <div class="challenge-live" id="challenge-live">🔥 Challenge is LIVE! 🔥</div>
+        </div>
+        
         <div class="cta-section">
             <form class="email-form" id="signup-form">
-                <input type="email" name="email" class="email-input" placeholder="Enter your email" required>
+                <input type="email" name="email" class="email-input" placeholder="Enter your email" required aria-label="Email address">
                 <button type="submit" class="submit-btn">Join the Revolution</button>
             </form>
             <div class="form-message" id="form-message"></div>
-            <div class="coming-soon">
-                <div class="pulse-dot"></div>
-                <span class="coming-soon-text">Launching July 2026</span>
+        </div>
+        
+        <div class="share-section">
+            <p class="share-text">Spread the word</p>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=I'm%20joining%20the%20Liberty%20Lift%201776%20challenge!%20%F0%9F%87%BA%F0%9F%87%B8%20%0A%0A1,776%20push-ups%20in%20July.%20Are%20you%20in?&url=https://libertylift1776.com" target="_blank" rel="noopener" class="share-btn twitter" aria-label="Share on Twitter">
+                    𝕏 Share
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://libertylift1776.com" target="_blank" rel="noopener" class="share-btn facebook" aria-label="Share on Facebook">
+                    f Share
+                </a>
+                <button class="share-btn copy" onclick="copyLink()" aria-label="Copy link">
+                    📋 Copy Link
+                </button>
             </div>
         </div>
+        
         <blockquote class="quote">
             <p class="quote-text">"The Constitution only guarantees the American people the right to pursue happiness. You have to catch it yourself."</p>
             <cite class="quote-author">— Benjamin Franklin</cite>
         </blockquote>
     </main>
-    <footer><p>© 2026 Liberty Lift 1776. All rights reserved.</p></footer>
+    
+    <section class="how-it-works" id="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-icon">✍️</div>
+                <div class="step-title">Sign Up</div>
+                <div class="step-desc">Enter your email above to join the revolution. We'll remind you when July starts.</div>
+            </div>
+            <div class="step">
+                <div class="step-icon">🗓️</div>
+                <div class="step-title">July 1st: Begin</div>
+                <div class="step-desc">Start your push-up journey on Independence month. Just 57 per day gets you there.</div>
+            </div>
+            <div class="step">
+                <div class="step-icon">📱</div>
+                <div class="step-title">Log Daily</div>
+                <div class="step-desc">Track your push-ups in the app. Compete on leaderboards. Rep your state.</div>
+            </div>
+            <div class="step">
+                <div class="step-icon">🏆</div>
+                <div class="step-title">Hit 1776</div>
+                <div class="step-desc">Complete the challenge by July 31st. Earn your spot in history.</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="calculator">
+        <h2 class="section-title">Calculate Your Pace</h2>
+        <div class="calc-container">
+            <p class="calc-label">If you have this many days remaining:</p>
+            <div class="calc-input-group">
+                <input type="number" class="calc-input" id="days-input" min="1" max="31" value="31" aria-label="Days remaining">
+                <span style="color: rgba(255,255,255,0.5)">days</span>
+            </div>
+            <div class="calc-result">
+                <div class="calc-result-number" id="pace-result">58</div>
+                <div class="calc-result-text">push-ups per day to hit 1776</div>
+            </div>
+            <p class="calc-encouragement" id="encouragement">Totally doable! 💪</p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2026 Liberty Lift 1776. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Built with 🇺🇸 in Virginia</p>
+    </footer>
+    
     <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const july1 = new Date('2026-07-01T00:00:00');
+            const now = new Date();
+            const diff = july1 - now;
+            
+            if (diff <= 0) {
+                document.getElementById('countdown').style.display = 'none';
+                document.querySelector('.countdown-title').style.display = 'none';
+                document.getElementById('challenge-live').style.display = 'inline-block';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // Email Form
         document.getElementById('signup-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             const form = this;
@@ -247,13 +597,41 @@
             }
         });
         
-        const july1 = new Date('2026-07-01T00:00:00');
-        const now = new Date();
-        if (now < july1) {
-            const diff = july1 - now;
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.querySelector('.coming-soon-text').textContent = 'Launching in ' + days + ' days';
+        // Copy Link
+        function copyLink() {
+            navigator.clipboard.writeText('https://libertylift1776.com').then(() => {
+                const btn = document.querySelector('.share-btn.copy');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✓ Copied!';
+                setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+            });
         }
+        
+        // Pace Calculator
+        const daysInput = document.getElementById('days-input');
+        const paceResult = document.getElementById('pace-result');
+        const encouragement = document.getElementById('encouragement');
+        
+        function calculatePace() {
+            const days = parseInt(daysInput.value) || 31;
+            const pace = Math.ceil(1776 / days);
+            paceResult.textContent = pace;
+            
+            if (pace <= 30) {
+                encouragement.textContent = "Easy mode! You've got this. 😎";
+            } else if (pace <= 60) {
+                encouragement.textContent = "Totally doable! 💪";
+            } else if (pace <= 100) {
+                encouragement.textContent = "A solid challenge. Respect. 🔥";
+            } else if (pace <= 150) {
+                encouragement.textContent = "Beast mode activated! 🦅";
+            } else {
+                encouragement.textContent = "Legendary. You're built different. 🏆";
+            }
+        }
+        
+        daysInput.addEventListener('input', calculatePace);
+        calculatePace();
     </script>
 </body>
 </html>
